@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/CustomerModule/Features",
         glue = {"CustomerModule.Steps", "CustomerModule.Hooks"},
-        plugin = {"pretty", "html:target/cucumber-reports.html"},tags = "@delivery")
+        plugin = {"pretty", "html:target/cucumber-reports.html"},tags = "@order")
 public class testRunner {
 }

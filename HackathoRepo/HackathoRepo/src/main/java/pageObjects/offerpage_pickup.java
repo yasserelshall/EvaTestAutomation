@@ -4,9 +4,10 @@ import base.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import org.testng.Assert;
 
 
 //import static pageObjects.login.driver;
@@ -20,6 +21,9 @@ public class offerpage_pickup extends PageBase {
     private final By medicationRequests = By.xpath("//a[normalize-space(text())='Medication Requests']");
     private final By pickup = By.xpath("//a[normalize-space(text())='Pickup']");
 
+    @FindBy(xpath = "//h1[normalize-space()='Latest Offers']")
+    WebElement latestOffLogo;
+
     public void clickPSPdrobdown () throws Exception {
         Thread.sleep(3000);
         waitUntilWebElementBrClickable(pspDropdown);
@@ -32,11 +36,19 @@ public class offerpage_pickup extends PageBase {
     public void clickPickup() throws Exception {
         waitAndClickOnWebElement(pickup);
     }
+    public void isloggedIn() throws InterruptedException {
+        Thread.sleep(3000);
+        Assert.assertTrue(latestOffLogo.isDisplayed());
 
+    }
     public void pickupPage() throws Exception {
+        //isloggedIn();
+        //clickPSPdrobdown();
+        clickMedicationRequests();
+        clickPickup();
 
-       clickPSPdrobdown();
-       clickMedicationRequests();
-       clickPickup();
+    }
 
-    }}
+
+
+}

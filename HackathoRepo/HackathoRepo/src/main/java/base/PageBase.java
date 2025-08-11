@@ -315,7 +315,7 @@ public class    PageBase {
 
 
 
-    public WebElement findElement(By locator) {
+    public static WebElement findElement(By locator) {
         return driver.findElement(locator);
     }
 

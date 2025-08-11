@@ -25,12 +25,13 @@ public class login extends PageBase {
         findElement(submitButton).click();
     }
 public void  setup(String username , String password){
-    driver=new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.get("https://limitlesscaredashboard-staging.azurewebsites.net/");
+  //  driver=new ChromeDriver();
+    //driver.manage().window().maximize();
+  //  driver.get("https://limitlesscaredashboard-staging.azurewebsites.net/");
     enterUsername(username);
     enterPassword(password);
     clickSubmit();
+
 
 }
 
