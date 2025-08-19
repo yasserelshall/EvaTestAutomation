@@ -456,5 +456,8 @@ public class PageBase {
     }
 
 
+    public List<WebElement> findElements(By locator) {
+        return driver.findElements(locator);
+    }
 }
 

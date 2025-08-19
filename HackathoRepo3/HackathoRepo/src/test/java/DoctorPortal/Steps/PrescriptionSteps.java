@@ -12,6 +12,8 @@ import pageObjects.homePage;
 import pageObjects.loginPage;
 import pageObjects.pendingPage;
 
+import java.util.List;
+
 public class PrescriptionSteps  extends PageBase {
     WebDriver driver = Hooks.driver;
 
@@ -50,9 +52,16 @@ public class PrescriptionSteps  extends PageBase {
     @And("Doctor can edit the prescription")
     public void Doctor_can_edit_the_prescription() throws Exception {
         pendingPage pendObjj = new pendingPage();
-        pendObjj.editPrescription();
+        pendObjj.EditBtn();
+
         CreateRxPage edtObj= new CreateRxPage();
-        edtObj.editprescription();
+        List<String> expectedMedicines = edtObj.editprescription();
+        Hooks.scenarioContext.setContext("ExpectedMedicines", expectedMedicines);
+
+        pendingPage pnd=new pendingPage();
+        pnd.checkEditedMedicine(expectedMedicines);
     }
+
+
 
 }
